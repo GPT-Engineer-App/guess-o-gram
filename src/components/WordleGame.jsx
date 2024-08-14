@@ -55,14 +55,14 @@ const WordleGame = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-black p-2 sm:p-4 overflow-hidden">
-      <h1 className="text-2xl sm:text-4xl font-bold text-green-500 mb-4 sm:mb-8 neon-text glitch">6-LETTER WORDLE</h1>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4 sm:p-6">
+      <h1 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-6 sm:mb-8">6-LETTER WORDLE</h1>
       {!gameStarted ? (
         <button
           onClick={startGame}
-          className="bg-green-500 text-black font-bold py-2 px-4 text-sm sm:text-base rounded neon-border hover:bg-green-400 transition-colors"
+          className="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600 transition-colors"
         >
-          INITIATE SEQUENCE
+          Start Game
         </button>
       ) : (
         <>
@@ -71,9 +71,9 @@ const WordleGame = () => {
           {gameOver && (
             <button
               onClick={startGame}
-              className="mt-4 bg-green-500 text-black font-bold py-2 px-4 text-sm sm:text-base rounded neon-border hover:bg-green-400 transition-colors"
+              className="mt-6 bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600 transition-colors"
             >
-              REBOOT SYSTEM
+              Play Again
             </button>
           )}
         </>

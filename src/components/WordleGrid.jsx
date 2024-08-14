@@ -26,11 +26,11 @@ const WordleGrid = ({ guesses, currentGuess, secretWord }) => {
     } else if (secretWord.includes(letter)) {
       return 'bg-yellow-500 border-yellow-600';
     }
-    return 'bg-gray-700 border-gray-600';
+    return 'bg-gray-300 border-gray-400';
   };
 
   return (
-    <div className="grid grid-rows-6 gap-1 mb-4">
+    <div className="grid grid-rows-6 gap-1 mb-6">
       {[...Array(MAX_ATTEMPTS)].map((_, rowIndex) => (
         <div key={rowIndex} className="grid grid-cols-6 gap-1">
           {[...Array(WORD_LENGTH)].map((_, colIndex) => {
@@ -38,11 +38,11 @@ const WordleGrid = ({ guesses, currentGuess, secretWord }) => {
             const isRevealed = revealedLetters.includes(`${rowIndex}-${colIndex}`);
             const colorClass = guesses[rowIndex] && isRevealed
               ? getLetterColor(letter, colIndex, guesses[rowIndex])
-              : 'bg-gray-800 border-gray-700';
+              : 'bg-white border-gray-300';
             return (
               <div
                 key={colIndex}
-                className={`w-8 h-8 sm:w-12 sm:h-12 flex items-center justify-center text-lg sm:text-2xl font-bold text-white rounded border-2 ${colorClass} transition-all duration-300 ${isRevealed ? 'rotate-y-180' : ''}`}
+                className={`w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-lg sm:text-xl font-bold text-gray-800 rounded border ${colorClass} transition-all duration-300 ${isRevealed ? 'rotate-y-180' : ''}`}
               >
                 <div className={`transition-all duration-300 ${isRevealed ? 'rotate-y-180' : ''}`}>
                   {letter}

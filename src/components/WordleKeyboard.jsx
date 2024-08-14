@@ -9,28 +9,28 @@ const KEYBOARD_LAYOUT = [
 const WordleKeyboard = ({ onKeyPress, guesses, secretWord }) => {
   const getKeyColor = (key) => {
     if (guesses.some(guess => guess.includes(key) && secretWord.includes(key))) {
-      return 'bg-yellow-500 border-yellow-600';
+      return 'bg-yellow-500 text-white';
     }
     if (guesses.some(guess => guess.split('').some((letter, index) => letter === key && secretWord[index] === key))) {
-      return 'bg-green-500 border-green-600';
+      return 'bg-green-500 text-white';
     }
     if (guesses.some(guess => guess.includes(key) && !secretWord.includes(key))) {
-      return 'bg-gray-700 border-gray-600';
+      return 'bg-gray-400 text-white';
     }
-    return 'bg-gray-800 border-gray-700';
+    return 'bg-gray-200 text-gray-800';
   };
 
   return (
-    <div className="mt-4 w-full max-w-sm">
+    <div className="w-full max-w-md">
       {KEYBOARD_LAYOUT.map((row, rowIndex) => (
-        <div key={rowIndex} className="flex justify-center mb-1">
+        <div key={rowIndex} className="flex justify-center mb-2">
           {row.map((key) => (
             <button
               key={key}
               onClick={() => onKeyPress(key)}
               className={`${
                 key === 'ENTER' || key === 'BACKSPACE' ? 'w-16' : 'w-8'
-              } h-10 mx-0.5 text-xs font-bold rounded border-2 ${getKeyColor(key)} text-white hover:opacity-80 transition-opacity neon-border touch-manipulation`}
+              } h-12 mx-0.5 text-sm font-bold rounded ${getKeyColor(key)} hover:opacity-80 transition-opacity touch-manipulation`}
             >
               {key === 'BACKSPACE' ? '←' : key}
             </button>
