@@ -56,7 +56,7 @@ const WordleGame = () => {
 
   return (
     <div className="flex flex-col items-center justify-center p-4 sm:p-6">
-      <h1 className="text-2xl sm:text-3xl font-light text-yellow-200 mb-6 sm:mb-8 tracking-wide">6-LETTER WORDLE</h1>
+      <h1 className="text-2xl sm:text-3xl font-light text-yellow-200 mb-6 sm:mb-8 tracking-wide">6-letter Wordle</h1>
       {!gameStarted ? (
         <button
           onClick={startGame}
