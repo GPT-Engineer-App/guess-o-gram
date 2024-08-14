@@ -9,15 +9,15 @@ const KEYBOARD_LAYOUT = [
 const WordleKeyboard = ({ onKeyPress, guesses, secretWord }) => {
   const getKeyColor = (key) => {
     if (guesses.some(guess => guess.includes(key) && secretWord.includes(key))) {
-      return 'bg-yellow-500';
+      return 'bg-yellow-500 border-yellow-600';
     }
     if (guesses.some(guess => guess.split('').some((letter, index) => letter === key && secretWord[index] === key))) {
-      return 'bg-green-500';
+      return 'bg-green-500 border-green-600';
     }
     if (guesses.some(guess => guess.includes(key) && !secretWord.includes(key))) {
-      return 'bg-gray-500';
+      return 'bg-gray-700 border-gray-600';
     }
-    return 'bg-gray-300';
+    return 'bg-gray-800 border-gray-700';
   };
 
   return (
@@ -30,7 +30,7 @@ const WordleKeyboard = ({ onKeyPress, guesses, secretWord }) => {
               onClick={() => onKeyPress(key)}
               className={`${
                 key === 'ENTER' || key === 'BACKSPACE' ? 'w-16' : 'w-10'
-              } h-12 mx-0.5 text-sm font-bold rounded ${getKeyColor(key)} text-white hover:opacity-80 transition-opacity`}
+              } h-12 mx-0.5 text-sm font-bold rounded border-2 ${getKeyColor(key)} text-white hover:opacity-80 transition-opacity neon-border`}
             >
               {key === 'BACKSPACE' ? '←' : key}
             </button>
