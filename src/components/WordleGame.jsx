@@ -44,7 +44,7 @@ const WordleGame = () => {
         toast.success(`Congratulations! You've guessed the word in ${newGuesses.length}/6 attempts!`);
         setGameOver(true);
       } else if (newGuesses.length === MAX_ATTEMPTS) {
-        toast.error(`Game over! The word was ${secretWord}`);
+        toast.error(`Oops, today is not your day. Try again tomorrow. The word was ${secretWord}`);
         setGameOver(true);
       }
     } else if (key === 'BACKSPACE') {
