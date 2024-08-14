@@ -23,14 +23,14 @@ const WordleKeyboard = ({ onKeyPress, guesses, secretWord }) => {
   return (
     <div className="mt-4">
       {KEYBOARD_LAYOUT.map((row, rowIndex) => (
-        <div key={rowIndex} className="flex justify-center mb-2">
+        <div key={rowIndex} className="flex justify-center mb-1 sm:mb-2">
           {row.map((key) => (
             <button
               key={key}
               onClick={() => onKeyPress(key)}
               className={`${
-                key === 'ENTER' || key === 'BACKSPACE' ? 'w-16' : 'w-10'
-              } h-12 mx-0.5 text-sm font-bold rounded border-2 ${getKeyColor(key)} text-white hover:opacity-80 transition-opacity neon-border`}
+                key === 'ENTER' || key === 'BACKSPACE' ? 'w-12 sm:w-16' : 'w-8 sm:w-10'
+              } h-10 sm:h-12 mx-0.5 text-xs sm:text-sm font-bold rounded border-2 ${getKeyColor(key)} text-white hover:opacity-80 transition-opacity neon-border`}
             >
               {key === 'BACKSPACE' ? '←' : key}
             </button>

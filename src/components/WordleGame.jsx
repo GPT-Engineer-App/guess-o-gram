@@ -2,25 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { toast } from "sonner";
 import WordleGrid from './WordleGrid';
 import WordleKeyboard from './WordleKeyboard';
-import { getRandomWord, isValidWord } from '../utils/wordList';
+import { isValidWord } from '../utils/wordList';
 
 const WORD_LENGTH = 6;
 const MAX_ATTEMPTS = 6;
 
 const WordleGame = () => {
-  const [secretWord, setSecretWord] = useState('');
+  const [secretWord, setSecretWord] = useState('GRIEVE');
   const [guesses, setGuesses] = useState([]);
   const [currentGuess, setCurrentGuess] = useState('');
   const [gameOver, setGameOver] = useState(false);
   const [gameStarted, setGameStarted] = useState(false);
-
-  useEffect(() => {
-    if (gameStarted) {
-      const todaysWord = getRandomWord();
-      setSecretWord(todaysWord);
-      console.log("Today's word is GRIEVE");
-    }
-  }, [gameStarted]);
 
   const startGame = () => {
     setGameStarted(true);
@@ -63,12 +55,12 @@ const WordleGame = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-black p-4">
-      <h1 className="text-4xl font-bold text-green-500 mb-8 neon-text glitch">6-LETTER WORDLE</h1>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-black p-2 sm:p-4">
+      <h1 className="text-2xl sm:text-4xl font-bold text-green-500 mb-4 sm:mb-8 neon-text glitch">6-LETTER WORDLE</h1>
       {!gameStarted ? (
         <button
           onClick={startGame}
-          className="bg-green-500 text-black font-bold py-2 px-4 rounded neon-border hover:bg-green-400 transition-colors"
+          className="bg-green-500 text-black font-bold py-2 px-4 text-sm sm:text-base rounded neon-border hover:bg-green-400 transition-colors"
         >
           INITIATE SEQUENCE
         </button>
@@ -79,7 +71,7 @@ const WordleGame = () => {
           {gameOver && (
             <button
               onClick={startGame}
-              className="mt-4 bg-green-500 text-black font-bold py-2 px-4 rounded neon-border hover:bg-green-400 transition-colors"
+              className="mt-4 bg-green-500 text-black font-bold py-2 px-4 text-sm sm:text-base rounded neon-border hover:bg-green-400 transition-colors"
             >
               REBOOT SYSTEM
             </button>

@@ -42,7 +42,7 @@ const WordleGrid = ({ guesses, currentGuess, secretWord }) => {
             return (
               <div
                 key={colIndex}
-                className={`w-12 h-12 flex items-center justify-center text-2xl font-bold text-white rounded border-2 ${colorClass} transition-all duration-300 ${isRevealed ? 'rotate-y-180' : ''}`}
+                className={`w-8 h-8 sm:w-12 sm:h-12 flex items-center justify-center text-lg sm:text-2xl font-bold text-white rounded border-2 ${colorClass} transition-all duration-300 ${isRevealed ? 'rotate-y-180' : ''}`}
               >
                 <div className={`transition-all duration-300 ${isRevealed ? 'rotate-y-180' : ''}`}>
                   {letter}
