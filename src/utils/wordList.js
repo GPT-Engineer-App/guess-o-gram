@@ -17,7 +17,6 @@ export const getRandomWord = () => {
 };
 
 export const isValidWord = (word) => {
-  const upperWord = word.toUpperCase();
-  // Check if the word is in our list, or if its singular form (removing 'S') is in the list
-  return wordList.includes(upperWord) || (upperWord.endsWith('S') && wordList.includes(upperWord.slice(0, -1)));
+  // Accept any 6-letter word
+  return word.length === 6;
 };

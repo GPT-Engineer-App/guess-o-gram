@@ -37,10 +37,11 @@ const WordleGame = () => {
         toast.error("Word must be 6 letters long.");
         return;
       }
-      if (!isValidWord(currentGuess)) {
-        toast.error("Not a valid word.");
+      if (currentGuess.length !== WORD_LENGTH) {
+        toast.error("Word must be 6 letters long.");
         return;
       }
+      // We've removed the isValidWord check here
       const newGuesses = [...guesses, currentGuess.toUpperCase()];
       setGuesses(newGuesses);
       setCurrentGuess('');
