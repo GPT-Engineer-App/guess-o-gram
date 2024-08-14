@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { toast } from "sonner";
 import WordleGrid from './WordleGrid';
 import WordleKeyboard from './WordleKeyboard';
+import { getRandomWord } from '../utils/wordList';
 
 const WORD_LENGTH = 6;
 const MAX_ATTEMPTS = 6;
@@ -13,7 +14,9 @@ const WordleGame = () => {
   const [gameOver, setGameOver] = useState(false);
 
   useEffect(() => {
-    setSecretWord('PUZZLE');
+    const todaysWord = getRandomWord();
+    setSecretWord(todaysWord);
+    console.log("Today's word:", todaysWord); // For debugging purposes
   }, []);
 
   const handleKeyPress = (key) => {
