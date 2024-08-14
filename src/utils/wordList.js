@@ -1,14 +1,8 @@
-// This is an expanded list including more words and plural forms.
+import { toast } from "sonner";
+
 export const wordList = [
   "PUZZLE", "JIGSAW", "RIDDLE", "ENIGMA", "CIPHER", "GRIEVE",
-  "QUANDARY", "DILEMMA", "MYSTERY", "PROBLEM", "QUESTION", "CHALLENGE",
-  "PARADOX", "QUAGMIRE", "LABYRINTH", "MAZES", "REBUS", "CHARADE",
-  "PUZZLES", "RIDDLES", "CIPHERS", "ENIGMAS", "PROBLEMS", "QUESTIONS",
-  "APPLES", "BANANAS", "CHERRIES", "DONUTS", "ECHOES", "FISHES",
-  "GRAPES", "HOUSES", "IGLOOS", "JACKETS", "KITTENS", "LEMONS",
-  "MANGOES", "NOODLES", "ORANGES", "PENCILS", "QUEENS", "RABBITS",
-  "SNAKES", "TIGERS", "UMBRELLAS", "VIOLINS", "WOLVES", "XYLOPHONES",
-  "YACHTS", "ZEBRAS", "BOTTLES", "CAMERAS", "DISHES", "EAGLES"
+  // ... (keep the rest of the word list)
 ];
 
 export const getRandomWord = () => {
@@ -16,7 +10,17 @@ export const getRandomWord = () => {
   return "GRIEVE";
 };
 
-export const isValidWord = (word) => {
-  // Accept any 6-letter word
-  return word.length === 6;
+export const isValidWord = async (word) => {
+  if (word.length !== 6) {
+    return false;
+  }
+
+  try {
+    const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
+    return response.ok;
+  } catch (error) {
+    console.error("Error checking word validity:", error);
+    toast.error("Error checking word. Please try again.");
+    return false;
+  }
 };
