@@ -17,7 +17,7 @@ const WordleKeyboard = ({ onKeyPress, guesses, secretWord }) => {
     if (guesses.some(guess => guess.includes(key) && !secretWord.includes(key))) {
       return 'bg-gray-400 text-white';
     }
-    return 'bg-gray-200 text-gray-800';
+    return 'bg-gray-600 text-white';
   };
 
   return (

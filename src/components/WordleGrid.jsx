@@ -38,11 +38,11 @@ const WordleGrid = ({ guesses, currentGuess, secretWord }) => {
             const isRevealed = revealedLetters.includes(`${rowIndex}-${colIndex}`);
             const colorClass = guesses[rowIndex] && isRevealed
               ? getLetterColor(letter, colIndex, guesses[rowIndex])
-              : 'bg-white border-gray-300';
+              : 'bg-transparent border-gray-400';
             return (
               <div
                 key={colIndex}
-                className={`w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-lg sm:text-xl font-bold text-gray-800 rounded border ${colorClass} transition-all duration-300 ${isRevealed ? 'rotate-y-180' : ''}`}
+                className={`w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-lg sm:text-xl font-bold text-white rounded border ${colorClass} transition-all duration-300 ${isRevealed ? 'rotate-y-180' : ''}`}
               >
                 <div className={`transition-all duration-300 ${isRevealed ? 'rotate-y-180' : ''}`}>
                   {letter}
