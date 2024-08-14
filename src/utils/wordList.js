@@ -7,8 +7,8 @@ export const wordList = [
 ];
 
 export const getRandomWord = () => {
-  const randomIndex = Math.floor(Math.random() * wordList.length);
-  return wordList[randomIndex];
+  // For demonstration, we're returning a fixed word
+  return "GRIEVE";
 };
 
 export const isValidWord = (word) => {

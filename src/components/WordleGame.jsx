@@ -18,7 +18,7 @@ const WordleGame = () => {
     if (gameStarted) {
       const todaysWord = getRandomWord();
       setSecretWord(todaysWord);
-      console.log("Today's word:", todaysWord); // For debugging purposes
+      console.log("Today's word is GRIEVE");
     }
   }, [gameStarted]);
 
