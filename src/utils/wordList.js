@@ -1,9 +1,14 @@
-// This is a placeholder list. In a real implementation, you'd want a much larger list of common 6-letter words.
+// This is an expanded list including more words and plural forms.
 export const wordList = [
-  "PUZZLE", "JIGSAW", "RIDDLE", "ENIGMA", "CIPHER", "CONUNDRUM",
+  "PUZZLE", "JIGSAW", "RIDDLE", "ENIGMA", "CIPHER", "GRIEVE",
   "QUANDARY", "DILEMMA", "MYSTERY", "PROBLEM", "QUESTION", "CHALLENGE",
-  "BRAINTEASER", "PARADOX", "QUAGMIRE", "PERPLEXITY", "LABYRINTH", "MAZE",
-  "REBUS", "CHARADE"
+  "PARADOX", "QUAGMIRE", "LABYRINTH", "MAZES", "REBUS", "CHARADE",
+  "PUZZLES", "RIDDLES", "CIPHERS", "ENIGMAS", "PROBLEMS", "QUESTIONS",
+  "APPLES", "BANANAS", "CHERRIES", "DONUTS", "ECHOES", "FISHES",
+  "GRAPES", "HOUSES", "IGLOOS", "JACKETS", "KITTENS", "LEMONS",
+  "MANGOES", "NOODLES", "ORANGES", "PENCILS", "QUEENS", "RABBITS",
+  "SNAKES", "TIGERS", "UMBRELLAS", "VIOLINS", "WOLVES", "XYLOPHONES",
+  "YACHTS", "ZEBRAS", "BOTTLES", "CAMERAS", "DISHES", "EAGLES"
 ];
 
 export const getRandomWord = () => {
@@ -12,5 +17,7 @@ export const getRandomWord = () => {
 };
 
 export const isValidWord = (word) => {
-  return wordList.includes(word.toUpperCase());
+  const upperWord = word.toUpperCase();
+  // Check if the word is in our list, or if its singular form (removing 'S') is in the list
+  return wordList.includes(upperWord) || (upperWord.endsWith('S') && wordList.includes(upperWord.slice(0, -1)));
 };
