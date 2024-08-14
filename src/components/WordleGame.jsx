@@ -62,10 +62,31 @@ const WordleGame = () => {
     }
   };
 
-  // ... (keep the rest of the component code)
-
   return (
-    // ... (keep the existing JSX)
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-purple-500 to-pink-500 p-4">
+      <h1 className="text-4xl font-bold text-white mb-8">6-Letter Wordle</h1>
+      {!gameStarted ? (
+        <button
+          onClick={startGame}
+          className="bg-white text-purple-500 font-bold py-2 px-4 rounded hover:bg-purple-100 transition-colors"
+        >
+          Start Game
+        </button>
+      ) : (
+        <>
+          <WordleGrid guesses={guesses} currentGuess={currentGuess} secretWord={secretWord} />
+          <WordleKeyboard onKeyPress={handleKeyPress} guesses={guesses} secretWord={secretWord} />
+          {gameOver && (
+            <button
+              onClick={startGame}
+              className="mt-4 bg-white text-purple-500 font-bold py-2 px-4 rounded hover:bg-purple-100 transition-colors"
+            >
+              Play Again
+            </button>
+          )}
+        </>
+      )}
+    </div>
   );
 };
 
